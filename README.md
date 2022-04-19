@@ -6,14 +6,14 @@
 ##Description
 
 The function formats strings using
-	-%s
+	- %s
 
 Integers
-	-%i
-	-%d
+	- %i
+	- %d
 
 Characters
-	-%c
+	- %c
 
 
 ##Development
