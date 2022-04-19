@@ -19,7 +19,7 @@ int (*find_funct(const char *s, int p))(va_list)
 		{NULL, NULL}
 	};
 
-	for (i = 0; find[i].ch != '\0'; i++;)
+	for (i = 0; !find[i].ch == '\0'; i++)
 		if (find[i].ch[0] == s[p])
 			return (find[i].function);
 	return (NULL);

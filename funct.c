@@ -8,6 +8,7 @@
 int print_char(va_list c)
 {
 	char a = (char) va_arg(c, int);
+
 	_putchar(a);
 	return (1);
 }
@@ -24,7 +25,7 @@ int print_string(va_list s)
 	int i;
 
 	string = va_arg(s, char *);
-	if (string == '\0')
+	if (*string == '\0')
 	{
 		string = "(null)";
 	}
@@ -43,16 +44,15 @@ int print_string(va_list s)
 
 int print_decimal(va_list d)
 {
-	int i = 1;
 	int str[40];
 	int j = 0;
-	int n;
+	int n = 0;
 
 	int num = va_arg(d, int);
 
 	int temp = num;
 
-	if(num < 0)
+	if (num < 0)
 		num = -num;
 	while (num != 0)
 	{
@@ -66,9 +66,9 @@ int print_decimal(va_list d)
 	n += j;
 	j--;
 
-	while (j>=0)
+	while (j >= 0)
 	{
-		if (str[j] !='-')
+		if (str[j] != '-')
 			_putchar(str[j--] + '0');
 		else
 			_putchar(str[j--]);
