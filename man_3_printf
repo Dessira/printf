@@ -1,7 +1,7 @@
 .TH man 3 "18 APRIL 2022" "3.0" "_printf function man page"
 .SH NAME
 _printf - Replication of printf function
-formatted output conversion
+formatted output
 .SH SYNOPSIS
 .B #include "main.h"
 .B int _printf(const char *format, ...);
