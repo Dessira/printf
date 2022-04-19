@@ -9,9 +9,8 @@
 int _printf(const char *format, ...)
 {
 	va_list input;
-	int i, j;
-	i = 0;
-	j = 0;
+
+	int i = 0, j = 0;
 
 	va_start(input, format);
 
@@ -19,7 +18,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (format[i] != '\0' && format != NULL)
 	{
-		if (format[i] = '%')
+		if (format[i] == '%')
 		{
 			i++;
 			if (format[i] == '%')
