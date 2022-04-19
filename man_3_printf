@@ -1,0 +1,43 @@
+.TH man 3 "18 APRIL 2022" "3.0" "_printf function man page"
+.SH NAME
+_printf - Replication of printf function
+formatted output conversion
+.SH SYNOPSIS
+.B #include "main.h"
+.B int _printf(const char *format, ...);
+.SH DESCRIPTION
+.B _printf() function produce output based on the format string
+the string dictates how subsequent arguments are converted for output
+.B Format of the format string
+The format string is a character string composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream;
+and conversion specifications which result in fetching zero or subsequent arguments
+.SH Conversion specifier
+- A character that specifies the the type of conversion to be applied
+.B %c
+- prints a character
+
+.B %%
+- prints a %
+
+.B %s
+- prints a string
+
+.B %d, %i
+- prints an integer
+
+.B Return value
+- Upon sucessful return, return the number of characters printed except the NULL byte used to terminate strings
+- If error is encountered, a negative value is returned
+.B SH EXAMPLE
+
+#include "main.h"
+
+_printf("%i", 33);
+
+_printf("%c", A);
+
+.SH SEE ALSO
+man printf(3)
+
+.SH AUTHOR
+Barine Desire && Shuaib Mujahid
