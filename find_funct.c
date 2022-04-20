@@ -3,11 +3,11 @@
 /**
  * find_funct - function searches for the corresponding function
  * @s: character to match
- * @p: character position
+ * @input: argument
  * Return: function on success else NULL
  */
 
-int (*find_funct(const char *s, int p))(va_list)
+int find_funct(const char s, va_list input)
 {
 	int i;
 
@@ -19,8 +19,15 @@ int (*find_funct(const char *s, int p))(va_list)
 		{NULL, NULL}
 	};
 
-	for (i = 0; !find[i].ch == '\0'; i++)
-		if (find[i].ch[0] == s[p])
-			return (find[i].function);
-	return (NULL);
+	int j = 0;
+
+	for (i = 0; find[i].ch != 0; i++)
+	{
+		if (find[i].ch == s)
+		{
+			j += find[i].function(input);
+			return (j);
+		}
+}
+	return (0);
 }

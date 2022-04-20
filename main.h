@@ -18,7 +18,8 @@ typedef struct find
 } fin_t;
 
 int _printf(const char *format, ...);
-int (*find_funct(const char *s, int p))(va_list);
+int find_funct(const char s, va_list input);
+int check(char s);
 int _putchar(char c);
 int print_char(va_list c);
 int print_string(va_list s);

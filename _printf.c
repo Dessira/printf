@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	while (format[i] != '\0')
+	for (i = 0; format[i] != '\0' && format != NULL; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -27,9 +27,9 @@ int _printf(const char *format, ...)
 					i += 1;
 					j++;
 			}
-			else if (!find_funct(format, i) == '\0')
+			else if (check(*(format + i)) == 1)
 			{
-				j += find_funct(format, i)(input);
+				j += find_funct(*(format + i), input);
 				i += 1;
 			}
 			else
@@ -38,13 +38,34 @@ int _printf(const char *format, ...)
 				j++;
 			}
 		}
-		else
-		{
-			_putchar(format[i]);
-			j++;
-			i++;
-		}
 	}
 	va_end(input);
 	return (j);
+}
+
+/**
+ * check - checks for type
+ * @s: to check
+ * Return: 1 on success
+ */
+int check(char s)
+{
+	fin_t find[] = {
+		{'c', NULL},
+		{'s', NULL},
+		{'d', NULL},
+		{'i', NULL},
+		{0, NULL},
+	};
+
+	int i;
+
+	for (i = 0; find[i].ch != 0; i++)
+	{
+		if (find[i].ch == s)
+		{
+			return (1);
+		}
+	}
+	return (0);
 }
