@@ -25,7 +25,7 @@ int print_string(va_list s)
 	int i;
 
 	string = va_arg(s, char *);
-	if (*string == '\0')
+	if (string == '\0')
 	{
 		string = "(null)";
 	}
@@ -44,35 +44,33 @@ int print_string(va_list s)
 
 int print_decimal(va_list d)
 {
-	int str[40];
-	int j = 0;
-	int n = 0;
+	int s, len = 0;
+	int j = 1;
+	unsigned int n = 0;
 
-	int num = va_arg(d, int);
+	s = va_arg(d, int);
 
-	int temp = num;
-
-	if (num < 0)
-		num = -num;
-	while (num != 0)
+	if (s < 0)
 	{
-		str[j++] = (num % 10);
-		num /= 10;
+		_putchar('-');
+		n = s * -1;
+		len++;
+	}
+	else
+	{
+		n = s;
 	}
 
-	if (temp < 0)
-		str[j++] = '-';
-
-	n += j;
-	j--;
-
-	while (j >= 0)
+	while (n / j < 9)
 	{
-		if (str[j] != '-')
-			_putchar(str[j--] + '0');
-		else
-			_putchar(str[j--]);
+		j = j * 10;
 	}
 
-	return (j);
+	while ( j != 0)
+	{
+		len = len + _putchar(n / j + '0');
+		n = n % j;
+		j = j / 10;
+	}
+	return (len);
 }

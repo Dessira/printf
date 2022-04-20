@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	while (format[i] != '\0' && format != NULL)
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 					i += 1;
 					j++;
 			}
-			else if (!*find_funct(format, i) == '\0')
+			else if (!find_funct(format, i) == '\0')
 			{
 				j += find_funct(format, i)(input);
 				i += 1;
