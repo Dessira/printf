@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 			else if (check(*(format + (i + 1))) == 1)
 			{
 				j += find_funct(*(format + (i + 1)), input);
-				i += 1;
+				i++;
 			}
 			else
 			{

@@ -35,3 +35,16 @@ int print_string(va_list s)
 	}
 	return (i);
 }
+
+/**
+ * print_percent - print percent sign
+ * @input: argument
+ * Return: 1
+ */
+int print_percent(va_list input)
+{
+	(void)input;
+
+	_putchar('%');
+	return (1);
+}
