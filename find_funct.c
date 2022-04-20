@@ -12,11 +12,11 @@ int find_funct(const char s, va_list input)
 	int i;
 
 	fin_t find[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_decimal},
-		{"i", print_decimal},
-		{NULL, NULL}
+		{'c', print_char},
+		{'s', print_string},
+		{'d', print_decimal},
+		{'i', print_decimal},
+		{0, NULL}
 	};
 
 	int j = 0;

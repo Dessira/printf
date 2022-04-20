@@ -20,16 +20,15 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			if (format[i] == '%')
+			if (format[i + 1] == '%')
 			{
 				_putchar('%');
 					i += 1;
 					j++;
 			}
-			else if (check(*(format + i)) == 1)
+			else if (check(*(format + (i + 1))) == 1)
 			{
-				j += find_funct(*(format + i), input);
+				j += find_funct(*(format + (i + 1)), input);
 				i += 1;
 			}
 			else

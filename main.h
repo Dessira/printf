@@ -13,7 +13,7 @@
 
 typedef struct find
 {
-	char *ch;
+	char ch;
 	int (*function)(va_list);
 } fin_t;
 

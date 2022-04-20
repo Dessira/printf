@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * print_decimal - prints a decimal
  * @d: argument
@@ -6,34 +8,29 @@
 
 int print_decimal(va_list d)
 {
-        int s, len = 0;
-        int j = 1;
-        unsigned int n = 0;
+        int s;
+	unsigned int i, j, k, len = 0;
 
-        s = va_arg(d, int);
+	s = va_arg(d, int);
 
-        if (s < 0)
-        {
-                _putchar('-');
-                n = s * -1;
-                len++;
-        }
-        else
-        {
-                n = s;
-        }
-
-        while (n / j < 9)
-        {
-                j = j * 10;
-        }
-
-        while ( j != 0)
-        {
-                len = len + _putchar(n / j + '0');
-                n = n % j;
-                j = j / 10;
-        }
-        return (len);
+	if (s < 0)
+	{
+		i = (s * -1);
+		len = len + _putchar(45);
+	}
+	else
+		i = s;
+	j = i;
+	k = 1;
+	while (j >  9)
+	{
+		j = j / 10;
+		k = k * 10;
+	}
+	while (k >= 1)
+	{
+		len = len + _putchar(((i / k) % 10) + '0');
+		k = k / 10;
+	}
+	return (len);
 }
-
