@@ -8,7 +8,7 @@
 
 int print_decimal(va_list d)
 {
-        int s;
+	int s;
 	unsigned int i, j, k, len = 0;
 
 	s = va_arg(d, int);
