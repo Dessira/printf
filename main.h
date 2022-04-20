@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <string.h>
 /**
  * struct find - function object
  * @ch: flag
